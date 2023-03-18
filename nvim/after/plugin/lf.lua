@@ -1,0 +1,57 @@
+-- return {
+--   "lmburns/lf.nvim",
+--   cmd = "Lf",
+--   dependencies = { "nvim-lua/plenary.nvim", "akinsho/toggleterm.nvim" },
+--   opts = {
+--     winblend = 0,
+--     highlights = { NormalFloat = { guibg = "NONE" } },
+--     border = "double", -- border kind: single double shadow curved
+--     height = 0.70,
+--     width = 0.85,
+--     escape_quit = true,
+--   },
+--   keys = {
+--     { "<leader>lf", "<cmd>Lf<cr>", desc = "NeoTree" },
+--   },
+-- }
+-- vim.keymap.set(
+--   "n",
+--   "<leader>lf",
+--   function()
+--     require("lf").start(
+--       -- nil, -- this is the path to open Lf (nil means CWD)
+--               -- this argument is optional see `.start` below
+--       {
+--         -- Pass options (if any) that you would like
+--         dir = "", -- directory where `lf` starts ('gwd' is git-working-directory)
+--         direction = "float", -- window type: float horizontal vertical
+--         border = "double", -- border kind: single double shadow curved
+--         height = 0.80, -- height of the *floating* window
+--         width = 0.85, -- width of the *floating* window
+--         mappings = true, -- whether terminal buffer mapping is enabled
+--     })
+--   end,
+--   { noremap = true }
+-- )
+-- Lfcd
+-- Lflcd
+
+-- Lf " Open current file by default
+-- LfCurrentFile " Default Lf behaviour
+-- LfCurrentDirectory
+-- LfWorkingDirectory
+
+-- " Always open in new tabs
+-- LfNewTab
+-- LfCurrentFileNewTab
+-- LfCurrentDirectoryNewTab
+-- LfWorkingDirectoryNewTab
+
+-- " Open tab if it exists or in new tab if it does not
+-- LfCurrentFileExistingOrNewTab
+-- LfCurrentDirectoryExistingOrNewTab
+-- LfWorkingDirectoryExistingOrNewTab
+-- vim.g.NERDTreeHijackNetrw = 0
+-- vim.g.lf_replace_netrw = 1
+vim.keymap.set("n", "<leader>lf", ":Lf<CR>")
+vim.keymap.set("n", "<leader>lp", ":LfWorkingDirectory<CR>")
