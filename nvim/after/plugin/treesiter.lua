@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "help", "javascript", "typescript", "lua", "php","vim", "htmldjango", "html" },
+  ensure_installed = { "help", "javascript", "typescript", "lua", "php","vim", "htmldjango", "html", "sql" },
   -- ensure_installed =  "all" ,
   -- disable =  "scss",
   ignore_install = { "scss" },

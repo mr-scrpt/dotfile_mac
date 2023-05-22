@@ -159,6 +159,11 @@ _G.packer_plugins = {
     path = "/Users/mr/.local/share/nvim/site/pack/packer/start/lf.vim",
     url = "https://github.com/ptzz/lf.vim"
   },
+  ["live-server"] = {
+    loaded = true,
+    path = "/Users/mr/.local/share/nvim/site/pack/packer/start/live-server",
+    url = "https://github.com/manzeloth/live-server"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/mr/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

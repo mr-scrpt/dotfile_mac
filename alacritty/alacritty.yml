@@ -1,7 +1,7 @@
 live_config_reload: true
 
 window:
-  opacity: 0.8
+  opacity: 0.88
   padding:
     x: 6
     y: 10
@@ -13,7 +13,7 @@ font:
   normal:
     family: "SFMono Nerd Font"
     style: Regular
-  size: 15.0
+  size: 18.0
 
 env:
   TERM: xterm-256color
@@ -143,7 +143,7 @@ key_bindings:
     # - { key: S, mods: Command|Shift, chars: ":wa\n" } # save all
     - { key: Semicolon, mods: Command, chars: "\x02:" } # enter the tmux command prompt
     - { key: T, mods: Command, chars: "\x02\x63" } # create a new tmux window
-    - { key: W, mods: Command, chars: "\x02x" } # kill the current pane
+    - { key: W, mods: Command|Shift, chars: "\x02x" } # kill the current pane
     - { key: Z, mods: Command, chars: "\x02z" } # toggle zoom state of the current tmux pane
     - { key: N,  mods: Command, action: SpawnNewInstance }
     - { key: N,  mods: Command, chars: "\x02n"  }

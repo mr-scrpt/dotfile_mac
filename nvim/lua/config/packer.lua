@@ -93,6 +93,9 @@ return require('packer').startup(function(use)
   -- use('eshion/vim-sync')
   use('hesselbom/vim-hsftp')
   use('blueyed/smarty.vim')
+  use('manzeloth/live-server')
+
+
   -- use('skywind3000/asyncrun.vim')
   -- use({
   --   "lmburns/lf.nvim",

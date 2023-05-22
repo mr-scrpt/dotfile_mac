@@ -16,32 +16,40 @@ alt + ctrl - return : open -na "Alacritty"
 # open finder
 cmd - n : open `pwd`
 
-
-
+# alt + ctrl - i : yabai -m space --layout master-stack
+alt + ctrl - o : yabai -m window --resize right:20:0
 # === Resize Mode ===
 # Set resize border color
 :: resize @ : yabai -m config active_window_border_color 0xFFFF00FF
 # toggle resize mode
-resize < hyper - r ; default
-default < hyper - r ; resize
+# resize < cmd + ctrl - r ; default
+# default < cmd + ctrl - r ; resize
 # resize commands
-resize < left : yabai -m window --resize left:-50:0; \
-                  yabai -m window --resize right:-50:0
-resize < down : yabai -m window --resize bottom:0:50; \
-                  yabai -m window --resize top:0:50
-resize < up   : yabai -m window --resize top:0:-50; \
-                  yabai -m window --resize bottom:0:-50
-resize < right : yabai -m window --resize right:50:0; \
-                  yabai -m window --resize left:50:0
+# resize < left : yabai -m window --resize left:-50:0; \
+#                   yabai -m window --resize right:-50:0
+# resize < down : yabai -m window --resize bottom:0:50; \
+#                   yabai -m window --resize top:0:50
+# resize < up   : yabai -m window --resize top:0:-50; \
+#                   yabai -m window --resize bottom:0:-50
+# resize < right : yabai -m window --resize right:50:0; \
+#                   yabai -m window --resize left:50:0
 
+ctrl + shift - h : yabai -m window --resize left:-30:0; \
+                  yabai -m window --resize right:-30:0
+ctrl + shift - j : yabai -m window --resize bottom:0:30; \
+                  yabai -m window --resize top:0:30
+ctrl + shift - k   : yabai -m window --resize top:0:-30; \
+                  yabai -m window --resize bottom:0:-30
+ctrl + shift - l : yabai -m window --resize right:30:0; \
+                  yabai -m window --resize left:30:0
 
 # toggle move mode
-:: move @
-move < hyper - m ; default
-default < hyper - m ; move
+# :: move @
+# move < cmd + ctrl - m ; default
+# default < cmd + ctrl - m ; move
 # move window
-move < left : yabai -m window --space prev; default
-move < right : yabai -m window --space next; default
+# move < left : yabai -m window --space prev; default
+# move < right : yabai -m window --space next; default
 
 # alt + shift - f : open -na /System/Library/CoreServices/Finder.app/Contents/MacOS/Finder
 #alt + shift - f : open -na "Finder" && osascript -e 'tell application "Finder" to activate'
@@ -76,6 +84,7 @@ shift + alt - x : yabai -m space --mirror x-axis
 # toggle window float
 shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
+# alt - t : yabai -m window --grid 4:4:1:0:2:4
 
 # maximize a window
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
@@ -137,21 +146,25 @@ shift + alt - up : yabai -m window --display north; yabai -m display --focus nor
 # move window to prev and next space
 # shift + alt - p : yabai -m window --space prev;
 # shift + alt - n : yabai -m window --space next;
-# move window to prev and next space
-# ctrl + alt - left : yabai -m window --space prev;
-# ctrl + alt - right : yabai -m window --space next;
+#move window to prev and next space
+alt + shift - left : yabai -m window --space prev;
+alt + shift - right : yabai -m window --space next;
 
 # move window to space #
-shift + alt - 1 : yabai -m window --space 1;
-shift + alt - 2 : yabai -m window --space 2;
-shift + alt - 3 : yabai -m window --space 3;
-shift + alt - 4 : yabai -m window --space 4;
-shift + alt - 5 : yabai -m window --space 5;
-shift + alt - 6 : yabai -m window --space 6;
-shift + alt - 7 : yabai -m window --space 7k
-shift + alt - 8 : yabai -m window --space 8;
-shift + alt - 9 : yabai -m window --space 9;
+shift + ctrl - 1 : yabai -m window --space 1;
+shift + ctrl - 2 : yabai -m window --space 2;
+shift + ctrl - 3 : yabai -m window --space 3;
+shift + ctrl - 4 : yabai -m window --space 4;
+shift + ctrl - 5 : yabai -m window --space 5;
+shift + ctrl - 6 : yabai -m window --space 6;
+shift + ctrl - 7 : yabai -m window --space 7k
+shift + ctrl - 8 : yabai -m window --space 8;
+shift + ctrl - 9 : yabai -m window --space 9;
 
+
+# alt - down : yabai -m yabai -m display --focus prev
+# display --focus south
+# ctrl + shift - right : yabai -m space --focus next;
 # -- Starting/Stopping/Restarting Yabai --
 
 # stop/start/restart yabai

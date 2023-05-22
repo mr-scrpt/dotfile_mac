@@ -50,10 +50,23 @@ yabai -m config window_gap 10
 yabai -m config external_bar all:30:0
 
 
+yabai -m config --layout \
+    {"name": "master-stack", \
+     "type": "custom", \
+     "main-pane-size": 0.6, \
+     "main-pane-split": "vertical", \
+     "second-pane-size": 0.4, \
+     "second-pane-split": "horizontal" \
+    }
+
+yabai -m config --space default --layout bsp --layout fullscreen --layout master-stack
+
+
 # apps to not manage (ignore)
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^Hubstaff$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Wally$" manage=off
 yabai -m rule --add app="^Pika$" manage=off

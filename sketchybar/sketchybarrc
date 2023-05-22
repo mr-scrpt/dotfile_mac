@@ -13,7 +13,7 @@ export NERD_FONT="SFMono Nerd Font"
 
 
 
-sketchybar --bar height=26        \
+sketchybar --bar height=30        \
                  blur_radius=100  \
                  position=top     \
                  padding_left=10  \

@@ -209,5 +209,6 @@ map gd cd ~/Downloads
 map gp cd ~/project
 map gs cd ~/solution
 map gc cd ~/.config
+map ge cd ~/education
 map gz z
 # map gzi zi

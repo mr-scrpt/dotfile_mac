@@ -20,5 +20,6 @@
     "njk": "html",
     "nunjucks": "html",
     "html": "njk"
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
