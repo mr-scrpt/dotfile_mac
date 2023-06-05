@@ -83,10 +83,10 @@ return require('packer').startup(function(use)
   use('Yggdroot/indentLine')
   use('kdheepak/lazygit.nvim')
   -- use('ptzz/lf.vim')
-  use({
-    "ptzz/lf.vim",
-    requires = { "voldikss/vim-floaterm" },
-  })
+  -- use({
+  --   "ptzz/lf.vim",
+  --   requires = { "voldikss/vim-floaterm" },
+  -- })
   use('elzr/vim-json')
   use('github/copilot.vim')
   -- use('eshion/vim-sftp-sync')

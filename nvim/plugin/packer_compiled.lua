@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/Users/mr/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
   },
-  ["lf.vim"] = {
-    loaded = true,
-    path = "/Users/mr/.local/share/nvim/site/pack/packer/start/lf.vim",
-    url = "https://github.com/ptzz/lf.vim"
-  },
   ["live-server"] = {
     loaded = true,
     path = "/Users/mr/.local/share/nvim/site/pack/packer/start/live-server",
@@ -265,11 +260,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/mr/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
-  },
-  ["vim-floaterm"] = {
-    loaded = true,
-    path = "/Users/mr/.local/share/nvim/site/pack/packer/start/vim-floaterm",
-    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-hsftp"] = {
     loaded = true,
