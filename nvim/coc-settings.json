@@ -1,8 +1,23 @@
 {
+  "stylelintplus.enable": true,
+  "stylelintplus.filetypes": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "sugarss",
+    "vue"
+  ],
+  "stylelintplus.validateOnSave": true,
+  "stylelintplus.validateOnType": true,
+  "stylelintplus.autoFixOnSave": true,
+  "stylelintplus.autoFixOnFormat": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
   "eslint.autoFixOnSave": true,
-
   "eslint.validate": [
-
     "javascript",
     "javascriptreact",
     "typescript",
@@ -20,6 +35,5 @@
     "njk": "html",
     "nunjucks": "html",
     "html": "njk"
-  },
-  "snippets.ultisnips.pythonPrompt": false
+  }
 }

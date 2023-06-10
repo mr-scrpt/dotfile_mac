@@ -1,5 +1,4 @@
 vim.g.coc_global_extensions = {
-
   'coc-snippets',
   'coc-tag',
   'coc-css',
@@ -13,7 +12,7 @@ vim.g.coc_global_extensions = {
   'coc-tsserver',
   'coc-emmet',
   'coc-stylelintplus',
-  'coc-stylelint'
+  -- 'coc-stylelint'
 }
 
 vim.cmd(" let g:coc_user_config = { 'suggest.enablePreview': v:true,  'prettier.disableSuccessMessage': v:true, 'suggest.maxPreviewWidth': 100, 'diagnostic.checkCurrentLine': v:true, 'diagnostic.maxWindowHeight': 20, 'diagnostic.errorSign': '✖', 'diagnostic.warningSign': '⚠', 'diagnostic.infoSign': '●', 'diagnostic.hintSign': '○'}")
