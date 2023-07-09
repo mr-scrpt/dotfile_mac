@@ -70,6 +70,7 @@ local kind_icons = {
 }
 
 
+
 cmp.setup({
   snippet = {
 		expand = function(args)
@@ -86,6 +87,16 @@ cmp.setup({
     {name = 'copilot', keyword_length = 1 },
     {name = 'buffer',  keyword_length = 1 },
   },
+  window = {
+    documentation = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+    },
+    completion = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+    }
+  },
+
   formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
