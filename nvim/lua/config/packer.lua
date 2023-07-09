@@ -51,35 +51,51 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use('nvim-treesitter/playground')
+  use('MattesGroeger/vim-bookmarks')
   use {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
+    -- branch = 'v1.x',
     requires = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
 
+      -- Autoimport
+      -- {'jose-elias-alvarez/nvim-lsp-ts-utils'},
+
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
+      {'saadparwaiz1/cmp_luasnip'},
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lua' },
-      { 'mattn/emmet-vim' },
-      { 'dcampos/cmp-emmet-vim' },
+      -- { 'mattn/emmet-vim' },
+      -- { 'dcampos/cmp-emmet-vim' },
 
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
+      -- {
+      --   "L3MON4D3/LuaSnip",
+      -- -- follow latest release.
+      --   tag = "v1.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+      --   -- install jsregexp (optional!:).
+      --   run = "make install_jsregexp"
+      -- },
       { 'rafamadriz/friendly-snippets' },
+      -- { 'SirVer/ultisnips' },
+      -- { 'mlaursen/vim-react-snippets' },
+      {'dsznajder/vscode-es7-javascript-react-snippets',
+        run = 'yarn install --frozen-lockfile && yarn compile'
+      }
     }
   }
   use('dense-analysis/ale')
 
   -- use('tweekmonster/django-plus.vim')
 
-  use({ 'neoclide/coc.nvim', branch = 'release' })
+  -- use({ 'neoclide/coc.nvim', branch = 'release' })
   use('Yggdroot/indentLine')
   use('kdheepak/lazygit.nvim')
   -- use('ptzz/lf.vim')
@@ -88,12 +104,32 @@ return require('packer').startup(function(use)
   --   requires = { "voldikss/vim-floaterm" },
   -- })
   use('elzr/vim-json')
-  use('github/copilot.vim')
+  -- use('github/copilot.vim')
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+          module = "copilot",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  }
+
   -- use('eshion/vim-sftp-sync')
   -- use('eshion/vim-sync')
   use('hesselbom/vim-hsftp')
   use('blueyed/smarty.vim')
-  use('manzeloth/live-server')
+  -- use('manzeloth/live-server')
 
 
   -- use('skywind3000/asyncrun.vim')

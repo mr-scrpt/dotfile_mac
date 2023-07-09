@@ -1,38 +1,8 @@
--- use this table to disable/enable filetypes
-vim.g.copilot_filetypes = { xml = false }
-
--- since most are enabled by default you can turn them off
--- using this table and only enable for a few filetypes
--- vim.g.copilot_filetypes = { ["*"] = false, python = true }
-
-
--- imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
+-- vim.g.copilot_filetypes = { xml = false }
+-- vim.g.copilot_assume_mapped = true
 -- vim.g.copilot_no_tab_map = true
--- vim.keymap.set.keymap("i", "<C-a>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
+-- vim.api.nvim_set_keymap('i', '<A-Enter>', 'copilot#Accept("<CR>")', {expr=true, silent=true})
 
--- <C-]>                   Dismiss the current suggestion.
--- <Plug>(copilot-dismiss)
---
---                                                 *copilot-i_ALT-]*
--- <M-]>                   Cycle to the next suggestion, if one is available.
--- <Plug>(copilot-next)
---
---                                                 *copilot-i_ALT-[*
--- <M-[>                   Cycle to the previous suggestion.
--- <Plug>(copilot-previous)
+-- vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)", { silent = true })
 
-vim.keymap.set("i", "<C-]>", "<Plug>(copilot-next)", { silent = true })
-
-
-
-
--- vim.keymap.set("i", "<C-[>", "<Plug>(copilot-previous)", { silent = true })
-
--- vim.cmd[[
--- imap <silent><script><expr> <C-]> copilot#suggestion#dismiss
--- ]]
-
-
-
-
-vim.cmd[[highlight CopilotSuggestion guifg=#555555 ctermfg=8]]
+-- vim.cmd[[highlight CopilotSuggestion guifg=#555555 ctermfg=8]]
