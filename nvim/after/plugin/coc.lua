@@ -1,20 +1,20 @@
-vim.g.coc_global_extensions = {
-  'coc-snippets',
-  'coc-tag',
+-- vim.g.coc_global_extensions = {
+  -- 'coc-snippets',
+  -- 'coc-tag',
   -- 'coc-css',
-  'coc-htmldjango',
+  -- 'coc-htmldjango',
   -- 'coc-html',
   -- 'coc-json',
-  'coc-prettier',
+  -- 'coc-prettier',
   -- 'coc-vimlsp',
-  'coc-pairs',
-  'coc-eslint',
+  -- 'coc-pairs',
+  -- 'coc-eslint',
   -- 'coc-tsserver',
   -- 'coc-emmet',
-  'coc-stylelintplus',
-  'coc-prisma'
+  -- 'coc-stylelintplus',
+  -- 'coc-prisma'
   -- 'coc-stylelint'
-}
+-- }
 
 
 
