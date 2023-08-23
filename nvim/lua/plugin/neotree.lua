@@ -1,14 +1,16 @@
--- require("window-picker").setup({
--- 	autoselect_one = false,
--- 	include_current = false,
--- 	filter_rules = {
--- 		bo = {
--- 			filetype = { "neo-tree", "neo-tree-popup", "notify" },
--- 			buftype = { "terminal", "quickfix" },
--- 		},
--- 	},
--- 	other_win_hl_color = "#e35e4f",
--- })
+require("window-picker").setup({
+	autoselect_one = false,
+	include_current = false,
+	filter_rules = {
+		bo = {
+			filetype = { "neo-tree", "neo-tree-popup", "notify" },
+			buftype = { "terminal", "quickfix" },
+		},
+	},
+	other_win_hl_color = "#e35e4f",
+})
+
+
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
 vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
@@ -17,6 +19,21 @@ vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
 require("neo-tree").setup({
+  popup_border_style = "rounded",
+  -- enable_git_status = true,
+  -- enable_diagnostics = true,
+  sources = { "filesystem", "buffers", "git_status" },
+  source_selector = {
+        winbar = true,
+        content_layout = "center",
+        sources = {
+          { source = "filesystem"},
+          { source = "buffers"},
+          { source = "git_status"},
+          -- { source = "document_symbols"},
+        },
+      },
+
 	buffers = {
 		follow_current_file = {
 			enabled = true, -- This will find and focus the file in the active buffer every time

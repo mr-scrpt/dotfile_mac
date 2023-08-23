@@ -7,6 +7,9 @@ require("core.config")
 -- Plugins config
 require("plugin.telescope")
 require("plugin.lsp")
+
+-- require("plugin.symbols-outline")
+-- require("plugin.lsp-kind")
 require("plugin.mason")
 require("plugin.cmp")
 require("plugin.copilot")
@@ -16,7 +19,7 @@ require("plugin.lualine")
 require("plugin.gitsigns")
 require("plugin.treesitter")
 require("plugin.toggle-term")
-require("plugin.outline")
+-- require("plugin.outline")
 
 require("plugin.autopairs")
 require("plugin.comment-vim")
@@ -28,23 +31,27 @@ require("plugin.which-key")
 
 -- Theme
 require("theme.catppuccin")
+require("theme.color")
 
 local augroup = vim.api.nvim_create_augroup
-local mrgroup = augroup("mr", {})
+local mrgroup = augroup('mr', {})
 
 local autocmd = vim.api.nvim_create_autocmd
-local yank_group = augroup("HighlightYank", {})
+local yank_group = augroup('HighlightYank', {})
 
-function R(name)
-	require("plenary.reload").reload_module(name)
-end
+function R(name) require("plenary.reload").reload_module(name) end
 
-autocmd("TextYankPost", {
-	group = yank_group,
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-	end,
+autocmd('TextYankPost', {
+    group = yank_group,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank({higroup = 'IncSearch', timeout = 100})
+    end
 })
 
-autocmd({ "BufWritePre" }, { group = mrgroup, pattern = "*", command = [[%s/\s\+$//e]] })
+autocmd({"BufWritePre"},
+        {group = mrgroup, pattern = "*", command = [[%s/\s\+$//e]]})
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
