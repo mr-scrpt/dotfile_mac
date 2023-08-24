@@ -16,8 +16,8 @@ vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.keymap.set("n", "<leader>l", "<C-w>L")
 vim.keymap.set("n", "<leader>h", "<C-w>H")
-vim.keymap.set({ "n", "v" }, "<S-k>", "<C-u>zz")
-vim.keymap.set({ "n", "v" }, "<S-j>", "<C-d>zz")
+vim.keymap.set({"n", "v"}, "<S-k>", "<C-u>zz")
+vim.keymap.set({"n", "v"}, "<S-j>", "<C-d>zz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -25,7 +25,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Splits
 vim.keymap.set("n", "vv", ":vsplit<CR>")
-vim.keymap.set("n", "VV", ":split<CR>")
+-- vim.keymap.set("n", "VV", ":split<CR>")
 
 -- Other
 vim.keymap.set("n", "<leader>w", ":w<CR>")
@@ -43,3 +43,8 @@ vim.keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>")
 vim.keymap.set("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>")
 vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical size=40<CR>")
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- Tabs

@@ -13,8 +13,10 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.1",
         dependencies = {"nvim-lua/plenary.nvim"}
-    }, {"cooperuser/glowbeam.nvim"}, {"joshdick/onedark.vim"},
-    {"rebelot/kanagawa.nvim"}, {
+    }, -- {"cooperuser/glowbeam.nvim"},
+    -- {"joshdick/onedark.vim"},
+    -- {"rebelot/kanagawa.nvim"},
+    {
         "aznhe21/actions-preview.nvim"
         -- config = function()
         --   vim.keymap.set({ "v", "n" }, "<M-CR>", require("actions-preview").code_actions)
@@ -50,7 +52,7 @@ require("lazy").setup({
             "MunifTanjim/nui.nvim", "s1n7ax/nvim-window-picker"
         }
     },
-    {"akinsho/bufferline.nvim", dependencies = {"nvim-tree/nvim-web-devicons"}},
+    -- {"akinsho/bufferline.nvim", dependencies = {"nvim-tree/nvim-web-devicons"}},
     {"hrsh7th/cmp-nvim-lsp-signature-help"}, {
         "linrongbin16/lsp-progress.nvim",
         event = {"VimEnter"},
@@ -65,42 +67,11 @@ require("lazy").setup({
 
     {"hrsh7th/vim-vsnip-integ"}, {
         "folke/flash.nvim",
-        event = "VeryLazy",
+        event = "VeryLazy"
         -- @type Flash.Config
-        opts = {},
-        keys = {
-            {
-                "s",
-                mode = {"n", "x", "o"},
-                function()
-                    require("flash").jump({
-                        search = {mode = function(str)
-                            return "\\<" .. str
-                        end}
-                    })
-                end,
-                desc = "Flash"
-            }, {
-                "S",
-                mode = {"n", "o", "x"},
-                function() require("flash").treesitter() end,
-                desc = "Flash Treesitter"
-            }, {
-                "r",
-                mode = "o",
-                function() require("flash").remote() end,
-                desc = "Remote Flash"
-            }, {
-                "R",
-                mode = {"o", "x"},
-                function() require("flash").treesitter_search() end,
-                desc = "Flash Treesitter Search"
-            }, {
-                "<c-s>",
-                mode = {"c"},
-                function() require("flash").toggle() end,
-                desc = "Toggle Flash Search"
-            }
-        }
-    }
+    }, {
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        dependencies = {"nvim-lua/plenary.nvim"}
+    }, {"mbbill/undotree"}
 })

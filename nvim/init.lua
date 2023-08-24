@@ -10,6 +10,7 @@ require("plugin.lsp")
 
 -- require("plugin.symbols-outline")
 -- require("plugin.lsp-kind")
+
 require("plugin.mason")
 require("plugin.cmp")
 require("plugin.copilot")
@@ -19,6 +20,7 @@ require("plugin.lualine")
 require("plugin.gitsigns")
 require("plugin.treesitter")
 require("plugin.toggle-term")
+
 -- require("plugin.outline")
 
 require("plugin.autopairs")
@@ -28,6 +30,9 @@ require("plugin.buffer-line")
 require("plugin.neotree")
 require("plugin.dashboard")
 require("plugin.which-key")
+require("plugin.flash")
+require("plugin.lazygit")
+require("plugin.undotree")
 
 -- Theme
 require("theme.catppuccin")
