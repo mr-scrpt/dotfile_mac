@@ -26,10 +26,12 @@ require("lazy").setup({
         dependencies = {"JoosepAlviste/nvim-ts-context-commentstring"}
     }, {"neovim/nvim-lspconfig"}, {"hrsh7th/cmp-nvim-lsp"},
     {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"}, {"hrsh7th/cmp-cmdline"},
-    {"hrsh7th/nvim-cmp"}, {"lewis6991/gitsigns.nvim"},
-
-    -- {'simrat39/symbols-outline.nvim'},
-
+    {"hrsh7th/nvim-cmp"}, {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-nvim-lua'}, -- Snippets
+    {'L3MON4D3/LuaSnip'}, {'rafamadriz/friendly-snippets'}, {
+        'dsznajder/vscode-es7-javascript-react-snippets',
+        run = 'yarn install --frozen-lockfile && yarn compile'
+    }, {"lewis6991/gitsigns.nvim"}, -- {'simrat39/symbols-outline.nvim'},
     -- {'onsails/lspkind.nvim'},
     {
         "nvim-lualine/lualine.nvim",
@@ -62,8 +64,10 @@ require("lazy").setup({
         "glepnir/dashboard-nvim",
         event = "VimEnter",
         dependencies = {{"nvim-tree/nvim-web-devicons"}}
-    }, {"folke/which-key.nvim"}, {"hrsh7th/vim-vsnip"},
+    }, {"folke/which-key.nvim"}, -- {"hrsh7th/vim-vsnip"},
     {"ThePrimeagen/harpoon"}, {"github/copilot.vim"},
+    -- {'saadparwaiz1/cmp_luasnip'},
+    -- {'L3MON4D3/LuaSnip'}, {'rafamadriz/friendly-snippets'},
 
     {"hrsh7th/vim-vsnip-integ"}, {
         "folke/flash.nvim",

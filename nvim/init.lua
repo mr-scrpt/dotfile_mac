@@ -12,7 +12,10 @@ require("plugin.lsp")
 -- require("plugin.lsp-kind")
 
 require("plugin.mason")
+require("plugin.luasnip")
 require("plugin.cmp")
+require("plugin.emmet")
+
 require("plugin.copilot")
 require("plugin.harpoon")
 require("plugin.null-ls")
