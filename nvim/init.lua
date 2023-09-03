@@ -16,7 +16,7 @@ require("plugin.luasnip")
 require("plugin.cmp")
 require("plugin.emmet")
 
-require("plugin.copilot")
+-- require("plugin.copilot")
 require("plugin.harpoon")
 require("plugin.null-ls")
 require("plugin.lualine")
@@ -36,6 +36,8 @@ require("plugin.which-key")
 require("plugin.flash")
 require("plugin.lazygit")
 require("plugin.undotree")
+require("plugin.notify")
+require("plugin.cmd")
 
 -- Theme
 require("theme.catppuccin")

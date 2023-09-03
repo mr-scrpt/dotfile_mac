@@ -25,12 +25,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
         local opts = {buffer = ev.buf}
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gk", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gs", function()
+        vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gD", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set("n", "dk", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "dc", function()
             vim.diagnostic.open_float(0, {scope = "line"})
         end, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "dn", function() vim.diagnostic.goto_next() end,
+                       opts)
+        vim.keymap.set("n", "dp", function() vim.diagnostic.goto_prev() end,
+                       opts)
         vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<M-CR>", require("actions-preview").code_actions)
         -- vim.keymap

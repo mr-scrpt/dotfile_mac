@@ -42,8 +42,7 @@ cmp.setup({
         -- end, {"i", "s"})
     }),
     sources = cmp.config.sources({
-        {name = "luasnip"}, {name = 'nvim_lsp'}, -- {name = 'vsnip'},
-        {name = 'path'}
+        {name = "luasnip"}, {name = 'nvim_lsp'}, {name = 'path'}
         -- {name = 'emmet_ls'} -- For vsnip users.
     }, {{name = 'buffer'}, {name = 'nvim_lsp_signature_help'}})
 })

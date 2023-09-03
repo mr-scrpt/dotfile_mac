@@ -16,6 +16,8 @@ require("lazy").setup({
     }, -- {"cooperuser/glowbeam.nvim"},
     -- {"joshdick/onedark.vim"},
     -- {"rebelot/kanagawa.nvim"},
+    {'rcarriga/nvim-notify'},
+    {'VonHeikemen/fine-cmdline.nvim', dependencies = {{'MunifTanjim/nui.nvim'}}},
     {
         "aznhe21/actions-preview.nvim"
         -- config = function()
@@ -65,11 +67,11 @@ require("lazy").setup({
         event = "VimEnter",
         dependencies = {{"nvim-tree/nvim-web-devicons"}}
     }, {"folke/which-key.nvim"}, -- {"hrsh7th/vim-vsnip"},
-    {"ThePrimeagen/harpoon"}, {"github/copilot.vim"},
+    {"ThePrimeagen/harpoon"}, -- {"github/copilot.vim"},
     -- {'saadparwaiz1/cmp_luasnip'},
     -- {'L3MON4D3/LuaSnip'}, {'rafamadriz/friendly-snippets'},
-
-    {"hrsh7th/vim-vsnip-integ"}, {
+    -- {"hrsh7th/vim-vsnip-integ"},
+    {
         "folke/flash.nvim",
         event = "VeryLazy"
         -- @type Flash.Config
