@@ -20,6 +20,34 @@ return {
 
 			-- set keybinds
 			opts.desc = "Show LSP references"
+
+			keymap.set("n", "dc", function()
+				vim.diagnostic.open_float(0, { scope = "line" })
+			end, opts)
+			keymap.set("n", "dn", function()
+				vim.diagnostic.goto_next()
+			end, opts)
+			keymap.set("n", "dp", function()
+				vim.diagnostic.goto_prev()
+			end, opts)
+			vim.keymap.set("n", "dk", vim.lsp.buf.hover, opts)
+
+			keymap.set("n", "<M-CR>", require("actions-preview").code_actions)
+
+			keymap.set("n", "<Leader>lr", vim.lsp.buf.rename, opts)
+
+			keymap.set("n", "<Leader>lf", function()
+				vim.lsp.buf.format({ async = true })
+			end, opts)
+			keymap.set("n", "<leader>li", function()
+				local params = {
+					command = "_typescript.organizeImports",
+					arguments = { vim.api.nvim_buf_get_name(0) },
+					title = "",
+				}
+				vim.lsp.buf.execute_command(params)
+			end, opts)
+
 			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
 			opts.desc = "Go to declaration"
@@ -28,36 +56,36 @@ return {
 
 			opts.desc = "Show LSP definitions"
 			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
-			opts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-
-			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
-
-			opts.desc = "See available code actions"
-			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-			opts.desc = "Smart rename"
-			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-			opts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-
-			opts.desc = "Show line diagnostics"
-			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
-
-			opts.desc = "Go to previous diagnostic"
-			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-			opts.desc = "Go to next diagnostic"
-			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
-			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-
-			opts.desc = "Restart LSP"
-			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+			--
+			-- opts.desc = "Show LSP implementations"
+			-- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+			--
+			-- opts.desc = "Show LSP type definitions"
+			-- keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+			--
+			-- opts.desc = "See available code actions"
+			-- keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+			--
+			-- opts.desc = "Smart rename"
+			-- keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+			--
+			-- opts.desc = "Show buffer diagnostics"
+			-- keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+			--
+			-- opts.desc = "Show line diagnostics"
+			-- keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+			--
+			-- opts.desc = "Go to previous diagnostic"
+			-- keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+			--
+			-- opts.desc = "Go to next diagnostic"
+			-- keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+			--
+			-- opts.desc = "Show documentation for what is under cursor"
+			-- keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+			--
+			-- opts.desc = "Restart LSP"
+			-- keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
@@ -90,16 +118,16 @@ return {
 		})
 
 		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["tailwindcss"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
 
 		-- configure svelte server
-		lspconfig["svelte"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["svelte"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
 
 		-- configure prisma orm server
 		lspconfig["prismals"].setup({
@@ -108,11 +136,11 @@ return {
 		})
 
 		-- configure graphql language server
-		lspconfig["graphql"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
+		-- lspconfig["graphql"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+		-- })
 
 		-- configure emmet language server
 		lspconfig["emmet_ls"].setup({

@@ -2,69 +2,18 @@
   "exportEnum": {
     "key": "exportEnum",
     "prefix": "expe",
-    "body": [
-      "export enum ${1:first}Enum {",
-      "${2}",
-      "}"
-    ],
+    "body": ["export enum ${1:first}Enum {", "${2}", "}"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "discribe": {
-    "key": "discribe",
-    "prefix": "dis",
-    "body": [
-      "describe('${TM_FILENAME_BASE}', () => {",
-      "  test('should ', () => {",
-      "   expect().toEqual()",
-      " })",
-      "})"
-
-    ],
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "console.log": {
-    "key": "console.log",
-    "prefix": "log",
-    "body": [
-      "console.log('$2', $1)"
-    ],
-    "description": "create console log snippet",
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "testTemplateWithState": {
-    "key": "testComponentSnippetWithState",
-    "prefix": "tcss",
-    "body": [
-      "describe('${TM_FILENAME_BASE}', () => {",
-      "  test('${TM_FILENAME_BASE}', () => {",
-      "    const state: PreloadeStateType = {",
-      "      counter: { value: 11 },",
-      "   }",
-      "",
-      "   expect().toEqual()",
-      " })",
-     "})"
-    ],
-    "description": "template to test in jest with state",
-    "scope": "typescript,typescriptreact,javascript,javascriptreact"
-  },
-  "testTemplate": {
-    "key": "testComponentSnippet",
-    "prefix": "tcs",
-    "body": [
-      "describe('${TM_FILENAME_BASE}', () => {",
-      "  test('${TM_FILENAME_BASE}', () => {",
-      "",
-      "   expect().toEqual()",
-      " })",
-     "})"
-    ],
-    "description": "template to test in jest",
+  "exportSimpleInterface": {
+    "key": "exportSimpleInterface",
+    "prefix": "expi",
+    "body": ["export interface ${1:first} {", "}"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
   "exportReactProps": {
     "key": "exportReactInterface",
-    "prefix": "exrp",
+    "prefix": "expir",
     "body": [
       "import { HTMLAttributes } from 'react'",
       "",
@@ -75,12 +24,17 @@
     ],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
+  "console.log": {
+    "key": "console.log",
+    "prefix": "cl",
+    "body": ["console.log('$2', $1)"],
+    "description": "create console log snippet",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
   "const": {
     "key": "const",
     "prefix": "cn",
-    "body": [
-      "const $1 = $2"
-    ],
+    "body": ["const $1 = $2"],
     "description": "create console log snippet",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
@@ -94,13 +48,13 @@
       "import cls from './${1:${TM_FILENAME_BASE}}.module.scss'",
       "",
       "export const ${1:${TM_FILENAME_BASE}}:FC<${1:${TM_FILENAME_BASE}}Props> = (props) => {",
-        "const { className} = props",
-        "",
-        "const cls${1:${TM_FILENAME_BASE}} = classNames('', [className], {})",
+      "const { className} = props",
+      "",
+      "const cls${1:${TM_FILENAME_BASE}} = classNames('', [className], {})",
       "  return (",
       "    <div className={cls${1:${TM_FILENAME_BASE}}}>",
-          "",
-          "</div>",
+      "",
+      "</div>",
       "  )",
       "}",
       ""
@@ -2011,6 +1965,50 @@
     "key": "typeofSnippet",
     "prefix": "tpf",
     "body": ["typeof ${1:first}"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+
+  "discribe": {
+    "key": "discribe",
+    "prefix": "dis",
+    "body": [
+      "describe('${TM_FILENAME_BASE}', () => {",
+      "  test('should ', () => {",
+      "   expect().toEqual()",
+      " })",
+      "})"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "testTemplateWithState": {
+    "key": "testComponentSnippetWithState",
+    "prefix": "tcss",
+    "body": [
+      "describe('${TM_FILENAME_BASE}', () => {",
+      "  test('${TM_FILENAME_BASE}', () => {",
+      "    const state: PreloadeStateType = {",
+      "      counter: { value: 11 },",
+      "   }",
+      "",
+      "   expect().toEqual()",
+      " })",
+      "})"
+    ],
+    "description": "template to test in jest with state",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "testTemplate": {
+    "key": "testComponentSnippet",
+    "prefix": "tcs",
+    "body": [
+      "describe('${TM_FILENAME_BASE}', () => {",
+      "  test('${TM_FILENAME_BASE}', () => {",
+      "",
+      "   expect().toEqual()",
+      " })",
+      "})"
+    ],
+    "description": "template to test in jest",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   }
 }
