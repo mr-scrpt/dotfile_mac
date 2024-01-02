@@ -8,6 +8,10 @@ vim.cmd([[
   nnoremap <leader>qb :BufCurOnly<CR>
 ]])
 
+-- vim.cmd([[
+--   nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+--   nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+-- ]])
 vim.cmd([[
     function! Numbers()
       call search('\d\([^0-9\.]\|$\)', 'cW')
@@ -44,6 +48,7 @@ let g:camelchar = "A-Z0-9"
 vim.keymap.set("n", "<leader>b", "/\\u<CR>:nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader><leader>", "<c-^>")
+
 vim.keymap.set("n", "<ESC>", ":noh<return><esc>")
 -- Close current buffer
 vim.keymap.set("n", "<leader>bc", ":bc<CR>")
@@ -90,16 +95,17 @@ vim.keymap.set("n", "ss", vim.cmd.split)
 -- vim.keymap.set("n", "VV", ":split<CR>")
 
 -- Other
-vim.keymap.set("n", "<leader>w", ":w<CR>")
-vim.keymap.set("n", "<leader>x", ":BufferLinePickClose<CR>")
-vim.keymap.set("n", "<leader>X", ":BufferLineCloseRight<CR>")
-vim.keymap.set("n", "<leader>s", ":BufferLineSortByTabs<CR>")
-vim.keymap.set("i", "jj", "<Esc>")
+-- vim.keymap.set("n", "<leader>w", ":w<CR>")
+-- vim.keymap.set("n", "<leader>x", ":BufferLinePickClose<CR>")
+-- vim.keymap.set("n", "<leader>X", ":BufferLineCloseRight<CR>")
+-- vim.keymap.set("n", "<leader>s", ":BufferLineSortByTabs<CR>")
+-- vim.keymap.set("i", "jj", "<Esc>")
+
 -- vim.keymap.set("n", "<leader>H", ":nohlsearch<CR>")
 
 -- Tabs
-vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
-vim.keymap.set("n", "<s-Tab>", ":BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<s-Tab>", ":bprev<CR>")
 
 -- Terminal
 vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>")
