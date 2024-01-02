@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>w", vim.cmd.write)
+vim.keymap.set("n", "<leader>aw", ":wa<CR>")
 vim.keymap.set("n", "<leader>qq", vim.cmd.q)
+vim.keymap.set("n", "<leader>qa", ":qa!<CR>")
 vim.cmd([[
   command! BufCurOnly execute '%bdelete|edit#|bdelete#'
   nnoremap <leader>qb :BufCurOnly<CR>
