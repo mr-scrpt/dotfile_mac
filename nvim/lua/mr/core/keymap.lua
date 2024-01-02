@@ -45,9 +45,13 @@ let g:camelchar = "A-Z0-9"
 " vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
 " ]])
 -- to next capi letter
-vim.keymap.set("n", "<leader>b", "/\\u<CR>:nohlsearch<CR>")
-
+-- Tabs
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<s-Tab>", ":bprev<CR>")
+vim.keymap.set("n", "<leader>qb", ":bdelete<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-^>")
+
+-- vim.keymap.set("n", "<leader>b", "/\\u<CR>:nohlsearch<CR>")
 
 vim.keymap.set("n", "<ESC>", ":noh<return><esc>")
 -- Close current buffer
@@ -102,10 +106,6 @@ vim.keymap.set("n", "ss", vim.cmd.split)
 -- vim.keymap.set("i", "jj", "<Esc>")
 
 -- vim.keymap.set("n", "<leader>H", ":nohlsearch<CR>")
-
--- Tabs
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<s-Tab>", ":bprev<CR>")
 
 -- Terminal
 vim.keymap.set("n", "<leader>tf", ":ToggleTerm direction=float<CR>")

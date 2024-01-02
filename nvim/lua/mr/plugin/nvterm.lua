@@ -32,14 +32,19 @@ return {
 		})
 
 		local key = vim.keymap
+
 		key.set({ "n", "t" }, "<leader>tv", function()
 			term.toggle("vertical")
 		end)
+
 		key.set({ "n", "t" }, "<leader>th", function()
 			term.toggle("horizontal")
 		end)
+
 		key.set({ "n", "t" }, "<leader>tf", function()
 			term.toggle("float")
 		end)
+
+		key.set("t", "<C-x>", vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true))
 	end,
 }
