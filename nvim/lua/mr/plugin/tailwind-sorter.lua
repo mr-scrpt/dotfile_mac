@@ -1,0 +1,17 @@
+-- return {
+-- 	"laytan/tailwind-sorter.nvim",
+-- 	config = function()
+-- 		require("tailwind-sorter").setup({
+-- 			on_save_pattern = { "*.html", "*.jsx", "*.tsx" },
+-- 		})
+-- 		-- local tailwind_sorter = require("tailwind-sorter")
+-- 		--
+-- 		-- tailwind_sorter.setup({
+-- 		-- 	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+-- 		-- 	on_save_pattern = { "*.html", "*.jsx", "*.tsx" },
+-- 		-- 	-- build = "cd formatter && npm i && npm run build",
+-- 		-- 	-- config = true,
+-- 		-- })
+-- 	end,
+-- }
+return {}

@@ -15,11 +15,32 @@ vim.cmd([[
     xnoremap in :<C-u>call Numbers()<CR>
     onoremap in :normal vin<CR>
 ]])
+
+-- replace select text !!!!
+vim.cmd([[
+  vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+]])
 -- iicin
 
--- vim.cmd([[
---   nnoremap <F4> :%s/<c-r><c-w>/<c-r><c-w>/gc<c-f>$F/i
--- ]])
+vim.cmd([[
+  " Use one of the following to define the camel characters.
+" Stop on capital letters.
+let g:camelchar = "A-Z"
+" Also stop on numbers.
+let g:camelchar = "A-Z0-9"
+" Include '.' for class member, ',' for separator, ';' end-statement,
+" and <[< bracket starts and "'` quotes.
+" let g:camelchar = "A-Z0-9.,;:{([`'\""
+" nnoremap <silent><leader>b :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+" nnoremap <silent><leader>B :<C-u>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+" inoremap <silent><C-Left> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>
+" inoremap <silent><C-Right> <C-o>:call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>
+" vnoremap <silent><C-Left> :<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%^','bW')<CR>v`>o
+" vnoremap <silent><C-Right> <Esc>`>:<C-U>call search('\C\<\<Bar>\%(^\<Bar>[^'.g:camelchar.']\@<=\)['.g:camelchar.']\<Bar>['.g:camelchar.']\ze\%([^'.g:camelchar.']\&\>\@!\)\<Bar>\%$','W')<CR>v`<o
+" ]])
+-- to next capi letter
+vim.keymap.set("n", "<leader>b", "/\\u<CR>:nohlsearch<CR>")
+
 vim.keymap.set("n", "<leader><leader>", "<c-^>")
 vim.keymap.set("n", "<ESC>", ":noh<return><esc>")
 -- Close current buffer
@@ -35,6 +56,10 @@ nnoremap <leader>lw *<c-o>cgn
 " nnoremap c# #<C-o>cgn
 ]])
 
+-- QuickFix list
+
+vim.keymap.set("n", "<leader>j", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")
 -- NeoTree
 vim.keymap.set("n", "<leader>e", ":Neotree float reveal<CR>")
 vim.keymap.set("n", "<leader>E", ":Neotree right reveal<CR>")

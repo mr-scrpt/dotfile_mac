@@ -118,10 +118,10 @@ return {
 		})
 
 		-- configure tailwindcss server
-		-- lspconfig["tailwindcss"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- })
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- configure svelte server
 		-- lspconfig["svelte"].setup({
@@ -133,6 +133,7 @@ return {
 		lspconfig["prismals"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "prisma" },
 		})
 
 		-- configure graphql language server
@@ -150,10 +151,10 @@ return {
 		})
 
 		-- configure python server
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["pyright"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({

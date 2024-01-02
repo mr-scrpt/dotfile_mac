@@ -1,5 +1,6 @@
 return {
-	"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+	-- "jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+	"nvimtools/none-ls.nvim", -- configure formatters & linters
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		-- import null-ls plugin
@@ -22,16 +23,19 @@ return {
 			sources = {
 				--  to disable file types use
 				--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-				formatting.prettier.with({
-					extra_filetypes = { "svelte" },
-				}), -- js/ts formatter
+				-- formatting.prettier.with({
+				-- 	extra_filetypes = { "svelte" },
+				-- }), -- js/ts formatter
 				formatting.stylua, -- lua formatter
 				formatting.stylelint,
+				formatting.prettierd,
+				-- formatting.prismaFmt,
+				-- formatting.prismaFmt,
 				diagnostics.stylelint,
-				diagnostics.markuplint,
+				-- diagnostics.markuplint,
 				diagnostics.eslint_d.with({ -- js/ts linter
 					condition = function(utils)
-						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
+						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.json" }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
 					end,
 				}),
 			},

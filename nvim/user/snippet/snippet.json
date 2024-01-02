@@ -1,4 +1,48 @@
 {
+  "importFrom": {
+    "key": "importFrom",
+    "prefix": "imf",
+    "body": ["import {${2}} from '${1}'"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "exportFrom": {
+    "key": "exportFrom",
+    "prefix": "exf",
+    "body": ["export {${2}} from '${1}'"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "propsDestructured": {
+    "key": "propsDestructured",
+    "prefix": "pd",
+    "body": ["const {${1}} = props"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "constDestructured": {
+    "key": "propsDestructured",
+    "prefix": "cd",
+    "body": ["const {${2}} = ${1}"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "tryCathc": {
+    "key": "tryCathc",
+    "prefix": "trc",
+    "body": ["try {", " ${1}", "} catch (e){", " ${2}", "}"],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
+  "tryCathcFinally": {
+    "key": "tryCathcFinally",
+    "prefix": "trcf",
+    "body": [
+      "try {",
+      " ${1}",
+      "} catch (e){",
+      " ${2}",
+      "} finally {",
+      " ${3}",
+      "}"
+    ],
+    "scope": "typescript,typescriptreact,javascript,javascriptreact"
+  },
   "exportEnum": {
     "key": "exportEnum",
     "prefix": "expe",
@@ -11,7 +55,7 @@
     "body": ["export interface ${1:first} {", "}"],
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
-  "exportReactProps": {
+  "expo tReactProps": {
     "key": "exportReactInterface",
     "prefix": "expir",
     "body": [
@@ -27,7 +71,7 @@
   "console.log": {
     "key": "console.log",
     "prefix": "cl",
-    "body": ["console.log('$2', $1)"],
+    "body": ["console.log('$2 =>>>', $1)"],
     "description": "create console log snippet",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"
   },
@@ -681,15 +725,16 @@
     "key": "reactFunctionalExportComponent",
     "prefix": "rfce",
     "body": [
-      "import React from 'react'",
+      "import { FC, HTMLAttributes } from 'react'",
       "",
-      "function ${1:${TM_FILENAME_BASE}}() {",
+      "interface ${1:${TM_FILENAME_BASE}}Props extends HTMLAttributes<HTMLDivElement> {}",
+      "",
+      "export const ${1:${TM_FILENAME_BASE}}: FC<${1:${TM_FILENAME_BASE}}Props> = (props) => {",
       "  return (",
       "    <div>${1:first}</div>",
       "  )",
       "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
+      ""
     ],
     "description": "Creates a React Functional Component with ES7 module system",
     "scope": "typescript,typescriptreact,javascript,javascriptreact"

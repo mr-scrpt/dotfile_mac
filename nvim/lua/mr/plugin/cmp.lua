@@ -18,6 +18,49 @@ return {
 
 		local lspkind = require("lspkind")
 
+		lspkind.init({
+			-- mode = "symbol_text",
+
+			-- default symbol map
+			-- can be either 'default' (requires nerd-fonts font) or
+			-- 'codicons' for codicon preset (requires vscode-codicons font)
+			--
+			-- default: 'default'
+			-- preset = "codicons",
+
+			-- override preset symbols
+			--
+			-- default: {}
+			symbol_map = {
+				Text = "󰉿 ",
+				Method = "󰆧 ",
+				Function = "󰡱 ",
+
+				Constructor = " ",
+				Field = "󰜢 ",
+				Variable = "󰀫 ",
+				Class = "󰠱 ",
+				Interface = " ",
+				Module = " ",
+				Property = "󰜢 ",
+				Unit = "󰑭",
+				Value = "󰎠 ",
+				Enum = "",
+				Keyword = "󰌋 ",
+				Snippet = " ",
+				Color = "󰏘 ",
+				File = "󰈙 ",
+				Reference = "󰈇 ",
+				Folder = "󰉋 ",
+				EnumMember = " ",
+				Constant = "󰏿 ",
+				Struct = "󰙅 ",
+				Event = " ",
+				Operator = "󰆕 ",
+				TypeParameter = "",
+			},
+		})
+
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		-- require("luasnip.loaders.from_vscode").lazy_load()
 		require("luasnip.loaders.from_vscode").lazy_load({
@@ -33,20 +76,29 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			},
+
+			window = {
+				documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered(),
+			},
+
 			mapping = cmp.mapping.preset.insert({
-				["<C-Space>"] = cmp.mapping.complete(),
+				["<C-k>"] = cmp.mapping.complete(),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			-- sources for autocompletion
+
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
 				{ name = "luasnip" }, -- snippets
+				{ name = "nvim_lsp" },
+			}, {
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
 			-- configure lspkind for vs-code like pictograms in completion menu
 			formatting = {
 				format = lspkind.cmp_format({
+					-- mode = "symbol",
 					maxwidth = 50,
 					ellipsis_char = "...",
 				}),
@@ -64,5 +116,21 @@ return {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 		})
+
+		vim.keymap.set({ "i" }, "<C-K>", function()
+			luasnip.expand()
+		end, { silent = true })
+		vim.keymap.set({ "i", "s" }, "<C-L>", function()
+			luasnip.jump(1)
+		end, { silent = true })
+		vim.keymap.set({ "i", "s" }, "<C-H>", function()
+			luasnip.jump(-1)
+		end, { silent = true })
+
+		vim.keymap.set({ "i", "s" }, "<C-E>", function()
+			if luasnip.choice_active() then
+				luasnip.change_choice(1)
+			end
+		end, { silent = true })
 	end,
 }

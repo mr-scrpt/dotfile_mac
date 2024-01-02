@@ -32,7 +32,7 @@ return {
 				"tsserver",
 				"html",
 				"cssls",
-				-- "tailwindcss",
+				"tailwindcss",
 				-- "svelte",
 				"lua_ls",
 				-- "graphql",
@@ -47,7 +47,7 @@ return {
 		mason_null_ls.setup({
 			-- list of formatters & linters for mason to install
 			ensure_installed = {
-				"prettier", -- ts/js formatter
+				-- "prettier", -- ts/js formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- ts/js linter
 				"stylelint",
