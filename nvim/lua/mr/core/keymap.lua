@@ -86,7 +86,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Splits
 vim.keymap.set("n", "vv", vim.cmd.vs)
--- vim.keymap.set("n", "ss", vim.cmd.split)
+vim.keymap.set("n", "ss", vim.cmd.split)
 -- vim.keymap.set("n", "VV", ":split<CR>")
 
 -- Other
