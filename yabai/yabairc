@@ -32,6 +32,7 @@ yabai -m config normal_window_border_color 0xff555555
 yabai -m config insert_feedback_color 0xffd75f5f
 yabai -m config split_ratio 0.50
 yabai -m config auto_balance off
+# yabai -m config auto_balance on
 yabai -m config mouse_modifier alt
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
@@ -64,8 +65,16 @@ yabai -m config --space default --layout bsp --layout fullscreen --layout master
 
 # apps to not manage (ignore)
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^qView$" manage=off
+yabai -m rule --add app="^The Unarchiver$" manage=off
+yabai -m rule --add app="^Системные настройки$" manage=off
+yabai -m rule --add app="^$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
+# yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add app="^ColorSlurp$" manage=off
+# yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^GOM Player$" manage=off
 yabai -m rule --add app="^Hubstaff$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Wally$" manage=off
@@ -75,6 +84,10 @@ yabai -m rule --add app="^Creative Cloud$" manage=off
 yabai -m rule --add app="^Logi Options$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Копирование|Очистка корзины|Информация|Перемещение|Свойства)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title=".*свойства$" manage=off
+yabai -m rule --add label="Калькулятор" app="^Калькулятор$" manage=off
+
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off

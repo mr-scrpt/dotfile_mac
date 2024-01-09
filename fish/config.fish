@@ -4,6 +4,7 @@
 
 # ~/.config/fish/config.fish
 
+neofetch
 starship init fish | source
 zoxide init fish | source
 set -gx fish_greeting # disable fish greeting
@@ -38,6 +39,7 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH ~/.config/tmux/bin $PATH
+set -gx PATH ~/.config/nvim/user/bash/ $PATH
 
 
 # ordered by priority - bottom up
@@ -45,3 +47,7 @@ fish_add_path /opt/homebrew/bin # https://brew.sh/
 fish_add_path /opt/homebrew/sbin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.local/share/nvim/site/pack
+
+# Setting PATH for Python 3.11
+# The original version is saved in /Users/mr/.config/fish/config.fish.pysave
+set -x PATH "/Library/Frameworks/Python.framework/Versions/3.11/bin" "$PATH"

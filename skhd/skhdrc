@@ -9,7 +9,10 @@
 # https://github.com/koekeishiya/skhd
 # shortcuts
 alt + shift - return : open -na "Google Chrome"
-alt + ctrl - return : open -na "Alacritty"
+# alt + ctrl - return : open -na "Alacritty"
+alt + ctrl - return : open -na "WezTerm"
+ctrl + shift - return : open -na "Arc"
+alt + cmd - return: open -na Finder
 # # Определите клавишу "hyper"
 
 # hyper - return : open -na "Google Chrome"
@@ -32,7 +35,7 @@ alt + ctrl - o : yabai -m window --resize right:20:0
 # resize < up   : yabai -m window --resize top:0:-50; \
 #                   yabai -m window --resize bottom:0:-50
 # resize < right : yabai -m window --resize right:50:0; \
-#                   yabai -m window --resize left:50:0
+#                   yabai -m window --resize left:50:
 
 ctrl + shift - h : yabai -m window --resize left:-30:0; \
                   yabai -m window --resize right:-30:0
@@ -42,6 +45,16 @@ ctrl + shift - k   : yabai -m window --resize top:0:-30; \
                   yabai -m window --resize bottom:0:-30
 ctrl + shift - l : yabai -m window --resize right:30:0; \
                   yabai -m window --resize left:30:0
+
+
+
+ctrl + shift + alt - a : yabai -m config focus_follows_mouse autofocus
+ctrl + shift - a : yabai -m config focus_follows_mouse off
+# ctrl + shift - a : [[ $(yabai -m config focus_follows_mouse) === "off" ]] && yabai -m config focus_follows_mouse autofocus || yabai -m config focus_follows_mouse off
+
+# cmd + ctrl + f : yabai -m config focus_follows_mouse $(yabai -m query --spaces --space | jq '.index') off
+# cmd + ctrl + shift + f : yabai -m config focus_follows_mouse $(yabai -m query --spaces --space | jq '.index') on
+
 
 # toggle move mode
 # :: move @
@@ -70,7 +83,8 @@ alt - up: yabai -m display --focus north
 
 
 
-
+# toggle window split type !!!!
+shift + ctrl - r : yabai -m window --toggle split
 
 # rotate layout clockwise
 shift + alt - r : yabai -m space --rotate 270
@@ -103,6 +117,8 @@ ctrl + alt - j : yabai -m window --warp south
 ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
+
+
 # # focus monitor
 # ctrl + alt - x  : yabai -m display --focus recent
 # ctrl + alt - z  : yabai -m display --focus prev
@@ -168,6 +184,6 @@ shift + ctrl - 9 : yabai -m window --space 9;
 # -- Starting/Stopping/Restarting Yabai --
 
 # stop/start/restart yabai
-ctrl + alt - q : brew services stop yabai
-ctrl + alt - s : brew services start yabai
-ctrl + alt - r : brew services restart yabai
+ctrl + alt - q : yabai --stop-service
+ctrl + alt - s : yabai --start-service
+ctrl + alt - r : yabai --restart-service
