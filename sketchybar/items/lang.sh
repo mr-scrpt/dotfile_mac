@@ -1,1 +1,2 @@
-sketchybar --add alias TextInputMenuAgent right
+sketchybar --add alias TextInputMenuAgent right \
+
