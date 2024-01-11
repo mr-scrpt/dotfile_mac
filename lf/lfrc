@@ -11,11 +11,13 @@ set ignorecase true
 # set ratios 1
 # set info size:time
 # Custom Functions
-# set previewer ctpv
+# set previewer ueberzug
 # set cleaner ctpvclear
 # &ctpv -s $id
 # &ctpvquit $id
-set previewer ~/.config/lf/scope.sh
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+#set previewer ~/.config/lf/_scope.sh
 set scrolloff 10
 
 set shell zsh
@@ -71,8 +73,60 @@ cmd zip ${{
 #         *.7z) 7z x $f;;
 #     esac
 # }}
+# cmd moveto ${{
+# 	clear
+# 	tput cup $(($(tput lines)/3))
+# 	tput bold
+# 	set -f
+#
+# 	clear
+# 	echo "Move to where?"
+# 	dest="$(sed -E -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' "${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs" | /usr/local/bin/fzf | sed 's|~|$HOME|')"
+#
+# 	if [ -n "$dest" ]; then
+# 		for x in $fx; do
+# 			eval mv -iv "$x" "$dest"
+# 		done
+#
+# 		osascript -e 'display notification "🚚 File(s) moved." with title "File(s) moved to '"$dest"'"'
+# 	else
+# 		osascript -e 'display notification "🚫 Operation canceled." with title "Move operation"'
+# 	fi
+# }}
+# drag and drop
+
+cmd moveto ${{
+	clear
+	tput cup $(($(tput lines)/3))
+	tput bold
+	set -f
+
+	clear
+	echo "Move to where?"
+	dest="$(sed -E -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' "${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs" | (cd "$HOME" && fzf) | sed 's|~|$HOME|')"
+
+	if [ -n "$dest" ]; then
+		for x in $fx; do
+			eval mv -iv "$x" "$dest"
+		done
+
+		osascript -e 'display notification "🚚 File(s) moved." with title "File(s) moved to '"$dest"'"'
+	else
+		osascript -e 'display notification "🚫 Operation canceled." with title "Move operation"'
+	fi
+}}
 
 
+# cmd moveto ${{
+# 	clear; tput cup $(($(tput lines)/3)); tput bold
+# 	set -f
+# 	clear; echo "Move to where?"
+# 	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+# 	for x in $fx; do
+# 		eval mv -iv \"$x\" \"$dest\"
+# 	done &&
+# 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+# }}
 
 # # compress current file or selected files with tar and gunzip
 # cmd tar ${{
@@ -153,6 +207,7 @@ cmd trash ${{
     fi
   done
 }}
+
 cmd z %{{
     result="$(zoxide query --exclude "${PWD}" -- "$1")"
     lf -remote "send ${id} cd '${result}'"
@@ -162,6 +217,7 @@ cmd zi ${{
     result="$(zoxide query -i -- "$1""
     lf -remote "send ${id} cd '${result}'"
 }}
+
 # cmd restore_trash ${{
 #   trash-restore
 # }}
@@ -174,7 +230,7 @@ map n
 map "'"
 map '"'
 map d
-
+map M moveto
 # map c $vscodium "$f"
 # Archive Mappings
 map az zip

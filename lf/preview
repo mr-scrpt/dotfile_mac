@@ -1,6 +1,4 @@
 #!/bin/sh
-# bat --color always "$@"
-#!/bin/sh
 
 image() {
     FILE_PATH="$1"
