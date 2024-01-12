@@ -62,17 +62,7 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
-# cmd extract ${{
-#     set -f
-#     case $f in
-#         *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
-#         *.tar.gz|*.tgz) tar xzvf $f;;
-#         *.tar.xz|*.txz) tar xJvf $f;;
-#         *.zip) unzip $f;;
-#         *.rar) unrar x $f;;
-#         *.7z) 7z x $f;;
-#     esac
-# }}
+
 # cmd moveto ${{
 # 	clear
 # 	tput cup $(($(tput lines)/3))
@@ -81,7 +71,7 @@ cmd zip ${{
 #
 # 	clear
 # 	echo "Move to where?"
-# 	dest="$(sed -E -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' "${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs" | /usr/local/bin/fzf | sed 's|~|$HOME|')"
+# 	dest="$(find "$HOME/Project/" "$HOME/Downloads/" -type d | fzf --prompt='Move to: ' --preview='ls {}' | sed 's|~|$HOME|')"
 #
 # 	if [ -n "$dest" ]; then
 # 		for x in $fx; do
@@ -93,7 +83,34 @@ cmd zip ${{
 # 		osascript -e 'display notification "🚫 Operation canceled." with title "Move operation"'
 # 	fi
 # }}
-# drag and drop
+# cmd moveto ${{
+# 	clear
+# 	tput cup $(($(tput lines)/3))
+# 	tput bold
+# 	set -f
+#
+# 	clear
+# 	echo "Move to where?"
+#
+# 	# Чтение путей из файла moveto_paths и формирование команды find
+# 	paths=()
+# 	while IFS= read -r line; do
+# 		paths+=("$line")
+# 	done < "$HOME/.config/lf/moveto_paths"
+#
+# 	# Формирование команды find с учетом путей из файла
+# 	dest="$(eval find "${paths[@]}" -type d | fzf --prompt='Move to: ' --preview='ls {}' | sed 's|~|$HOME|')"
+#
+# 	if [ -n "$dest" ]; then
+# 		for x in $fx; do
+# 			eval mv -iv "$x" "$dest"
+# 		done
+#
+# 		osascript -e 'display notification "🚚 File(s) moved." with title "File(s) moved to '"$dest"'"'
+# 	else
+# 		osascript -e 'display notification "🚫 Operation canceled." with title "Move operation"'
+# 	fi
+# }}
 
 cmd moveto ${{
 	clear
@@ -103,30 +120,61 @@ cmd moveto ${{
 
 	clear
 	echo "Move to where?"
-	dest="$(sed -E -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' "${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs" | (cd "$HOME" && fzf) | sed 's|~|$HOME|')"
+
+	# Используйте fzf для выбора целевой директории
+	dest="$(fzf --prompt='Move to: ' --preview='ls {}' | sed 's|~|$HOME|')"
 
 	if [ -n "$dest" ]; then
+		# Перемещение файлов в выбранную директорию
 		for x in $fx; do
 			eval mv -iv "$x" "$dest"
 		done
 
+		# Вывод уведомления об успешном перемещении
 		osascript -e 'display notification "🚚 File(s) moved." with title "File(s) moved to '"$dest"'"'
 	else
+		# Вывод уведомления об отмене операции
 		osascript -e 'display notification "🚫 Operation canceled." with title "Move operation"'
 	fi
 }}
 
-
 # cmd moveto ${{
-# 	clear; tput cup $(($(tput lines)/3)); tput bold
+# 	clear
+# 	tput cup $(($(tput lines)/3))
+# 	tput bold
 # 	set -f
-# 	clear; echo "Move to where?"
-# 	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
-# 	for x in $fx; do
-# 		eval mv -iv \"$x\" \"$dest\"
-# 	done &&
-# 	notify-send "🚚 File(s) moved." "File(s) moved to $dest."
+#
+# 	clear
+# 	echo "Move to where?"
+#
+# 	# Чтение путей из файла moveto_paths и формирование команды find
+# 	paths=()
+# 	while IFS= read -r line; do
+# 		paths+=("$line")
+# 	done < "$HOME/.config/lf/moveto_paths"
+#
+# 	# Формирование команды find с учетом путей из файла
+# 	dest="$(eval find "${paths[@]}" -type d | fzf --prompt='Move to: ' --preview 'clear && ll {}' --preview-window '~3'  | sed 's|~|$HOME|')"
+#
+# 	if [ -n "$dest" ]; then
+# 		for x in $fx; do
+# 			eval mv -iv "$x" "$dest"
+# 		done
+#
+# 		osascript -e 'display notification "🚚 File(s) moved." with title "File(s) moved to '"$dest"'"'
+# 	else
+# 		osascript -e 'display notification "🚫 Operation canceled." with title "Move operation"'
+# 	fi
 # }}
+
+
+
+
+
+
+
+
+
 
 # # compress current file or selected files with tar and gunzip
 # cmd tar ${{

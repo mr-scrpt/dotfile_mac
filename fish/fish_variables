@@ -2,21 +2,20 @@
 # VERSION: 3.0
 SETUVAR BAT_THEME:Nord
 SETUVAR EDITOR:nvim
-SETUVAR FZF_CTRL_R_OPTS:\x2d\x2dborder\x2dlabel\x3d\x27\x20History\x20\x27\x20\x2d\x2dprompt\x3d\x27\uea82\x20\x27
-SETUVAR FZF_DEFAULT_COMMAND:fd\x20\x2dH\x20\x2dE\x20\x27\x2egit\x27
-SETUVAR FZF_DEFAULT_OPTS:\x2d\x2dreverse\x20\x2d\x2dno\x2dinfo\x20\x2d\x2dprompt\x3d\x27\uf46b\x20\x27\x20\x2d\x2dpointer\x3d\x27\uf054\x27\x20\x2d\x2dmarker\x3d\x27\uf069\x20\x27\x20\x2d\x2dansi\x20\x2d\x2dcolor\x20gutter\x3a\x2d1\x2cbg\x2b\x3a\x2d1\x2cheader\x3a4\x2cseparator\x3a0\x2cinfo\x3a0\x2clabel\x3a4\x2cborder\x3a4\x2cprompt\x3a7\x2cpointer\x3a5\x2cquery\x3a7\x2cprompt\x3a7
-SETUVAR FZF_TMUX_OPTS:\x2dp\x20\x2d\x2dno\x2dinfo\x20\x2d\x2dansi\x20\x2d\x2dcolor\x20gutter\x3a\x2d1\x2cbg\x2b\x3a\x2d1\x2cheader\x3a4\x2cseparator\x3a0\x2cinfo\x3a0\x2clabel\x3a4\x2cborder\x3a4\x2cprompt\x3a7\x2cpointer\x3a5\x2cquery\x3a7\x2cprompt\x3a7
-SETUVAR --path NODE_PATH:\x7e/\x2envm/versions/node/v16\x2e19\x2e0/bin/node
-SETUVAR PAGER:/Users/mr/\x2elocal/bin/nvimpager
-SETUVAR VISUAL:nvim
+SETUVAR --export FZF_CTRL_R_OPTS:\x2d\x2dborder\x2dlabel\x3d\x27\x20History\x20\x27\x20\x2d\x2dprompt\x3d\x27\uea82\x20\x27
+SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2e\x20\x24HOME\x20\x2dH\x20\x2dE\x20\x27\x2egit\x27
+SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dreverse\x20\x2d\x2dno\x2dinfo\x20\x2d\x2dprompt\x3d\x27\uf46b\x20\x27\x20\x2d\x2dpointer\x3d\x27\uf054\x27\x20\x2d\x2dmarker\x3d\x27\uf069\x20\x27\x20\x2d\x2dansi\x20\x2d\x2dcolor\x20gutter\x3a\x2d1\x2cbg\x2b\x3a\x2d1\x2cheader\x3a4\x2cseparator\x3a0\x2cinfo\x3a0\x2clabel\x3a4\x2cborder\x3a4\x2cprompt\x3a7\x2cpointer\x3a5\x2cquery\x3a7\x2cprompt\x3a7
+SETUVAR FZF_DISABLE_KEYBINDINGS:0
+SETUVAR FZF_LEGACY_KEYBINDINGS:1
+SETUVAR FZF_PREVIEW_DIR_CMD:ls
+SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
+SETUVAR FZF_TMUX_HEIGHT:40\x25
+SETUVAR --export FZF_TMUX_OPTS:\x2dp\x20\x2d\x2dno\x2dinfo\x20\x2d\x2dansi\x20\x2d\x2dcolor\x20gutter\x3a\x2d1\x2cbg\x2b\x3a\x2d1\x2cheader\x3a4\x2cseparator\x3a0\x2cinfo\x3a0\x2clabel\x3a4\x2cborder\x3a4\x2cprompt\x3a7\x2cpointer\x3a5\x2cquery\x3a7\x2cprompt\x3a7
 SETUVAR __fish_initialized:3400
-SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
-SETUVAR _fisher_fabioantunes_2F_fish_2D_nvm_files:\x7e/\x2econfig/fish/functions/__nvm_run\x2efish\x1e\x7e/\x2econfig/fish/functions/node\x2efish\x1e\x7e/\x2econfig/fish/functions/npm\x2efish\x1e\x7e/\x2econfig/fish/functions/npx\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm_alias_command\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm_alias_function\x2efish\x1e\x7e/\x2econfig/fish/functions/yarn\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_kidonng_2F_zoxide_2E_fish_files:\x7e/\x2econfig/fish/functions/__zoxide_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/__zoxide_pwd\x2efish\x1e\x7e/\x2econfig/fish/functions/__zoxide_z\x2efish\x1e\x7e/\x2econfig/fish/functions/__zoxide_z_complete\x2efish\x1e\x7e/\x2econfig/fish/functions/__zoxide_zi\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/zoxide\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eedc/bass\x1efabioantunes/fish\x2dnvm\x1ekidonng/zoxide\x2efish
+SETUVAR _fisher_jethrokuan_2F_fzf_files:\x7e/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_open\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish
+SETUVAR _fisher_plugins:jethrokuan/fzf
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_color_autosuggestion:555\x1ebrblack
+SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:blue
 SETUVAR fish_color_comment:red
@@ -40,8 +39,8 @@ SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
-SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
+SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/Users/mr/\x2elocal/share/nvim/site/pack\x1e/opt/homebrew/sbin\x1e/opt/homebrew/bin
+SETUVAR fish_user_paths:/opt/homebrew/sbin\x1e/opt/homebrew/bin
